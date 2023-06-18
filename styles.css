@@ -14,10 +14,6 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-body * + * {
-  margin-top: 1.5em;
-}
-
 header {
   color: #fff;
   background-color: #0072b0;
@@ -25,26 +21,77 @@ header {
   padding: 1em 1.5em;
 }
 
-.container {
+.body-container {
   max-width: 1080px;
   margin: 0 auto;
 }
 
-.flex-container {
-  display: flex;
-  width: 100%;
-  gap: 0 1.5em;
+section {
+  margin-top: 1.5em;
 }
 
 .tips {
-  padding: 1.5em 0 1.5em 1.5em;
+  padding: 1.5em;
   background-color: #fff;
   border-radius: 0.5em;
-  flex-wrap: wrap;
+}
+
+.row-12::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.row-12 + .row-12 {
+  margin-top: 1.5em;
+}
+
+[class*="column-"] {
+  float: left;
+}
+
+[class*="column-"] + [class*="column-"] {
+  margin-left: 1.5em;
+}
+
+.column-1 {
+  width: calc(8.3333% - 1.5em);
+}
+.column-2 {
+  width: 16.6667%;
+}
+.column-3 {
+  width: 25%;
+}
+.column-4 {
+  width: calc(33.3333% - 1.5em);
+}
+.column-5 {
+  width: 41.6667%;
+}
+.column-6 {
+  width: calc(50% - 1.5em);
+}
+.column-7 {
+  width: 58.3333%;
+}
+.column-8 {
+  width: calc(66.6667% - 1.5em);
+}
+.column-9 {
+  width: 75%;
+}
+.column-10 {
+  width: 83.3333%;
+}
+.column-11 {
+  width: 91.6667%;
+}
+.column-12 {
+  width: 100%;
 }
 
 .media {
-  width: calc(50% - 1.5rem);
   padding: 1.5em 1.5em;
   background-color: #eee;
   border-radius: 0.5em;
@@ -64,14 +111,12 @@ header {
 }
 
 .join-us {
-  width: 70%;
   background-color: #fff;
   border-radius: 0.5em;
   padding: 1em 1.5em;
 }
 
 .sidebar {
-  width: 30%;
   padding: 1.5em;
   margin-top: 0;
   background-color: #fff;
