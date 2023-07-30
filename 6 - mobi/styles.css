@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=PT+Serif&display=swap');
+
+:root {
+  box-sizing: border-box;
+  font-size: calc(1vw + 0.5em);
+  --default-margin: 1.5em;
+  --default-bg-color: #eeeeee;
+  --default-pm-color: #833;
+  --default-sc-color: #ffffff;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+
+body {
+  background-color: var(--default-bg-color);
+  font-family: 'Oswald', sans-serif;
+}
+
+body *+* {
+  margin-top: var(--default-margin);
+}
+
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+
+.tile {
+  padding: 1.5em;
+  border-radius: .2em;
+  background-color: #ffffff;
+}
+
+
+.title>h1 {
+  color: #833;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin: 0.2em 0;
+}
+
+.slogan {
+  color: #888;
+  font-size: 0.875em;
+  margin: 0;
+}
+
+.menu {
+  position: relative;
+}
+
+.menu-toggle {
+  position: absolute;
+  top: -0.7em;
+  right: -0.2em;
+  border: 0;
+  background-color: transparent;
+  font-size: 3em;
+  width: 1em;
+  height: 1em;
+  line-height: 0.4;
+  text-indent: 5em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.menu-toggle::after {
+  position: absolute;
+  top: 0.2em;
+  left: 0.2em;
+  display: block;
+  content: "\2261";
+  text-indent: 0;
+}
+
+.dropdown {
+  margin-top: 0px;
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  min-width: 100%;
+  padding-left: 0px;
+  margin: 0px;
+  background-color: var(--default-bg-color);
+  list-style: none;
+}
+
+.dropdown-menu>li {
+  background-color: #000;
+  padding: 5px 5px;
+}
+
+.dropdown-menu>li>a {
+  text-decoration: none;
+  color: #fff;
+  padding: .5em 0.5em;
+}
+
+.dropdown-menu>li+li {
+  margin-top: 0px;
+  border-top: 1px solid #999;
+}
+
+.is-open {
+  display: block;
+}
+
+.hero {
+  padding: 2em 1em;
+  text-align: center;
+  background-image: url(./images/coffee-beans-small.jpg);
+  background-size: 100%;
+  color: #fff;
+  text-shadow: 0.1em 0.1em 0.3em #000;
+}
+
+.subtitle {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.modal {
+  display: none;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(68, 68, 68, 0.8);
+  z-index: 1;
+  /*Brings the backdrop in front of elements without a z-index*/
+}
+
+.modal-body {
+  position: fixed;
+  top: 0em;
+  bottom: 25%;
+  right: 30%;
+  left: 30%;
+  padding: 2em 3em;
+  background-color: white;
+  overflow: hidden;
+  z-index: 2;
+  /*Brings the modal-body in front of the backdrop*/
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.3em;
+  right: 0.3em;
+  padding: 0.3em;
+  cursor: pointer;
+  font-size: 2em;
+  height: 1em;
+  width: 1em;
+  text-indent: 10em;
+  overflow: hidden;
+  border: 0;
+  background-color: white;
+}
+
+.modal-close::after {
+  position: absolute;
+  line-height: 0.5;
+  top: 0.2em;
+  left: 0.1em;
+  content: "\00D7";
+  text-indent: 0;
+  /*Because text-indent is an
+  inherited property, you reset it to 0 on the pseudo-class so the x isn’t also indented.*/
+
+}
+
+.login-form h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: right;
+}
+
+.login-form input:not([type=checkbox]):not([type=radio]) {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  padding: 0.5em;
+}
+
+.btn {
+  padding: 0.5em 1.0em;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: 1em;
+  text-decoration: none;
+  border-radius: 0.375em;
+  border: #888888 solid 1px;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: var(--default-pm-color);
+}
+
+.btn-secondary {
+  color: #000000;
+  background-color: var(--default-sc-color);
+}
+
+.btn-primary:hover {
+  background-color: #bb2d3b;
+}
+
+.btn-secondary:hover {
+  background-color: #d3d4d5;
+}
+
+@media (min-width: 530px) {
+
+  .title>h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    padding: 5em 3em;
+    font-size: 1.2rem;
+    margin-top: 0;
+    background-image: url(./images/coffee-beans-medium.jpg);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: flex;
+    position: static;
+  }
+
+  .dropdown-menu>li {
+    flex: 1;
+    text-align: center;
+  }
+
+  .dropdown-menu>li+li {
+    border: 0;
+  }
+
+  .dropdown-menu>li>a {
+    padding: 0.3em;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .column {
+    flex: 1;
+    margin-top: 0px;
+  }
+
+  .row>.column+.column {
+    margin-left: 0.75em;
+  }
+
+}
+
+@media (min-width: 1080px) {
+
+  .hero {
+    padding: 7em 6em;
+    background-image: url(./images/coffee-beans.jpg);
+  }
+
+  .container {
+    max-width: 75%;
+  }
+
+  :root {
+    font-size: 1.125em;
+  }
+}
+
+@media print {
+
+  .page-header,
+  .hero {
+    display: none;
+  }
+
+}

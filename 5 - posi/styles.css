@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=PT+Serif&display=swap');
+
+:root {
+  box-sizing: border-box;
+  font-size: 1em;
+  --default-margin: 1.5em;
+  --default-bg-color: #eeeeee;
+  --default-pm-color: #ff3d50;
+  --default-sc-color: #ffffff;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--default-bg-color);
+  font-family: 'Oswald', sans-serif;
+  min-height: 200vh;
+  /* Forces the page height to enable scrolling (for demo purposes only)  */
+}
+
+body *+* {
+  margin-top: var(--default-margin);
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-label {
+  padding: 0.5em 2em 0.5em 1.5em;
+  border: 1px solid #ccc;
+  background-color: var(--default-bg-color);
+}
+
+.dropdown-label::after {
+  content: "";
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  border: 0.3em solid;
+  border-color: black transparent transparent;
+}
+
+.dropdown:hover .dropdown-label::after {
+  top: 0.7em;
+  border-color: transparent transparent black;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 1.3em;
+  min-width: 100%;
+  background-color: var(--default-bg-color);
+}
+
+.submenu {
+  padding-left: 0px;
+  margin: 0px;
+  list-style: none;
+  border: 1px solid #999;
+}
+
+.submenu>li+li {
+  margin-top: 0px;
+  border-top: 1px solid #999;
+}
+
+.submenu>li>a {
+  display: block;
+  padding: .5em 1.5em;
+  background-color: #eee;
+  color: #369;
+  text-decoration: none;
+}
+
+.submenu>li>a:hover {
+  background-color: #fff;
+}
+
+.tile {
+  padding: 1.5em;
+  border-radius: .2em;
+  background-color: #ffffff;
+}
+
+.modal {
+  display: none;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(68, 68, 68, 0.8);
+  z-index: 1; /*Brings the backdrop in front of elements without a z-index*/
+}
+
+.modal-body {
+  position: fixed;
+  top: 5em;
+  bottom: 50%;
+  right: 30%;
+  left: 30%;
+  padding: 2em 3em;
+  background-color: white;
+  overflow: auto;
+  z-index: 2; /*Brings the modal-body in front of the backdrop*/
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.3em;
+  right: 0.3em;
+  padding: 0.3em;
+  cursor: pointer;
+  font-size: 2em;
+  height: 1em;
+  width: 1em;
+  text-indent: 10em;
+  overflow: hidden;
+  border: 0;
+  background-color: white;
+}
+
+.modal-close::after {
+  position: absolute;
+  line-height: 0.5;
+  top: 0.2em;
+  left: 0.1em;
+  content: "\00D7";
+  text-indent: 0;
+  /*Because text-indent is an
+  inherited property, you reset it to 0 on the pseudo-class so the x isn’t also indented.*/
+
+}
+
+.login-form h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: right;
+}
+
+.login-form input:not([type=checkbox]):not([type=radio]) {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  padding: 0.5em;
+}
+
+.btn {
+  padding: 0.5em 1.0em;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: 1em;
+  text-decoration: none;
+  border-radius: 0.375em;
+  border: #888888 solid 1px;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: var(--default-pm-color);
+}
+
+.btn-secondary {
+  color: #000000;
+  background-color: var(--default-sc-color);
+}
+
+.btn-primary:hover {
+  background-color: #bb2d3b;
+}
+
+.btn-secondary:hover {
+  background-color: #d3d4d5;
+}

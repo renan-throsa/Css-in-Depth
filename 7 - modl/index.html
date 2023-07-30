@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <title>CSS In Depth - Modules</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <main>
+            <section class="tile">
+                <h1>Modular CSS</h1>
+                <p> <i>Modular</i> CSS means breaking the page up into its component parts. These parts
+                    should be reusable in multiple contexts, and they shouldn't directly depend upon one
+                    another. You also should be able to concisely summarize its purpose. When a module tries to do more
+                    than one thing, you should consider breaking it
+                    into smaller modules.</p>
+
+                <h3>A simple module</h3>
+                <p>Let's create a simple module for brief notification messages. Because each module
+                    needs a unique name, you'll call this one "message." You'll give it a bit of color and a
+                    border to capture the user's attention</p>
+
+
+
+                <pre>
+                    <code class="language-markup">
+                        &lt;div class="message"&gt;
+                            Save successful
+                            &lt;button class="close" id="close" type="button"&gt;close&lt;/button&gt;
+                        &lt;/div&gt;           
+                    </code> 
+                </pre>
+                <pre>
+                    <code class="language-css">                    
+                        .message {
+                            padding: 0.8em 1.2em;
+                            border-radius: 0.2em;
+                            border: 1px solid #265559;
+                            color: #265559;
+                            background-color: #e0f0f2;
+                            position: relative;
+                        }        
+                    </code>
+                </pre>
+
+                <div class="message">
+                    Save successful
+                    <button class="close" id="close" type="button"
+                        onclick="alert('clique!'); return false;">close</button>
+                </div>
+
+                <p>It's important that the selector for this module consists only of the single class
+                    name. Nothing else in the selector restricts these styles to a certain place on the page.In
+                    contrast, using a selector like #sidebar .message would mean this module could
+                    only be used inside a #sidebar element. Without this restriction, the module is reusable in any
+                    context.</p>
+
+
+                <h3>Variations of a module</h3>
+                <p>Consistency is good, but sometimes you’ll want to intentionally deviate from it. Our
+                    Message module is nice, but we might need it to look different under certain circumstances. For
+                    instance, if you need to display an error message, perhaps it should be
+                    colored red rather than teal. Or, perhaps you want to distinguish between messages
+                    that are purely informational and those that indicate a successful action, such as saving. You do
+                    this by defining <i>modifiers</i>.</p>
+
+                <pre>
+                    <code class="language-markup">
+                        &lt;div class="message message--success"&gt;
+                            Save successful
+                            &lt;button class="close" id="close" type="button"&gt;close&lt;/button&gt;
+                        &lt;/div&gt;           
+                    </code> 
+                </pre>
+
+                <pre>
+                        <code class="language-css">                    
+                            .message {
+                                padding: 0.8em 1.2em;
+                                border-radius: 0.2em;
+                                border: 1px solid #265559;
+                                color: #265559;
+                                background-color: #e0f0f2;
+                                position: relative;
+                            }
+    
+                            .message--success {
+                                color: #2f5926;
+                                border-color: #2f5926;
+                                background-color: #cfe8c9;
+                            }      
+                        </code>
+                </pre>
+
+
+                <div class="message message--success">
+                    Save successful
+                    <button class="close" id="close" type="button"
+                        onclick="alert('clique!'); return false;">close</button>
+                </div>
+
+                <h3>Button Module Variants</h3>
+                <p>Let's create another module with some variants. You’ll make a Button module with
+                    variants for large and small sizes, as well as color options. This way, you
+                    can use color to add visual meaning to the buttons. Green will indicate a positive
+                    action, such as saving or submitting a form. Red will indicate a warning to help prevent the user
+                    from accidentally clicking a cancel button.</p>
+
+                <button type="button" class="button button--large">Read more</button>
+                <button type="button" class="button button--success">Save</button>
+                <button type="button" class="button button--danger button—small">Cancel</button>
+
+
+                <pre>
+                    <code class="language-markup">
+                        &lt;button type="button" class="button button--large"&gt;Read more&lt;/button&gt;
+                        &lt;button type="button" class="button button--success"&gt;Save&lt;/button&gt;
+                        &lt;button type="button" class="button button--danger button—small"&gt;Cancel&lt;/button&gt;
+           
+                    </code> 
+                </pre>
+
+                <pre>
+                        <code class="language-css">                    
+                            .button {
+                                padding: 0.5em 0.8em;
+                                border: 1px solid #265559;
+                                border-radius: 0.2em;
+                                background-color: transparent;
+                                font-size: 1rem;
+                            }
+                            
+                            .button--success {
+                                border-color: #cfe8c9;
+                                color: #fff;
+                                background-color: #2f5926;
+                            }
+                            
+                            .button--danger {
+                                border-color: #e8c9c9;
+                                color: #fff;
+                                background-color: #a92323;
+                            
+                            }
+                            
+                            .button--small {
+                                font-size: 0.8rem;
+                            }
+                            
+                            .button--large {
+                                font-size: 1.2rem;
+                            }
+                        </code>
+                </pre>
+                <h3>Modules with multiple elements</h3>
+                <p>The two modules youve built so far—message and button—are nice and simple; they
+                    consist of only one element. But many modules you'll build will need more elements.
+                    You can't build a dropdown menu or a modal with only one element.
+                    Let's build a more complex module</p>
+
+
+                <div class="media">
+                    <img class="media__image" src="runner.png">
+                    <div class="media__body">
+                        <h4>Strength</h4>
+                        <p>
+                            Strength training is an important part of
+                            injury prevention. Focus on your core&mdash;
+                            especially your abs and glutes.
+                        </p>
+                    </div>
+                </div>
+
+                <p>This module consists of four elements: it has a div container that includes an image
+                    and a body, and inside the body is the title. As with other modules, you'll give the main
+                    container the class name media to match the name of the module. For the image and
+                    the body, you'll use the class names media__image and media__body. These begin with
+                    the module name, followed by a double-underscore, then the name of the sub-element.
+                    (This is another convention from BEM methodology.) As with double-hyphen modifiers, the class name
+                    tells you at a glance what role the element plays and what module
+                    it belongs to.</p>
+
+
+                <pre>
+                        <code class="language-markup">
+                    &lt;div class="media"&gt;
+                        &lt;img class="media__image" src="runner.png"&gt;
+                        &lt;div class="media__body"&gt;
+                            &lt;h4&gt;Strength&lt;/h4&gt;
+                            &lt;p&gt;
+                                Strength training is an important part of
+                                injury prevention. Focus on your core&mdash;
+                                especially your abs and glutes.
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;           
+                        </code> 
+                    </pre>
+
+                <pre>
+                            <code class="language-css">                    
+                                .media {
+                                    padding: 1.5em;
+                                    background-color: #eee;
+                                    border-radius: 0.5em;
+                                }
+                                
+                                .media::after {
+                                    content: "";
+                                    display: block;
+                                    clear: both;
+                                }
+                                
+                                .media__image {
+                                    float: left;
+                                    margin-right: 1.5em;
+                                }
+                                
+                                .media__body {
+                                    overflow: auto;
+                                    margin-top: 0;
+                                }
+                                
+                                .media__body>h4 {
+                                    margin-top: 0;
+                                }      
+                            </code>
+                    </pre>
+
+
+                <h3>Modules composed into larger structures</h3>
+                <p>Let's build the dropdown menu with two different modules. The first, which I'll call
+                    dropdown, will have a button responsible for controlling the visibility of a container. The second
+                    module, which I'll call menu, will be the list of stacked links. You'll
+                    then compose the full interface by placing an instance of the menu module inside the
+                    container of a Dropdown module.</p>
+                <div class="dropdown">
+                    <button type="button" class="dropdown__toggle">Main Menu</button>
+                    <div class="dropdown__drawer">
+                        <ul class="menu">
+                            <li class="menu__item"><a href="#">Home</a></li>
+                            <li class="menu__item"><a href="#">Coffees</a></li>
+                            <li class="menu__item"><a href="#">Brewers</a></li>
+                            <li class="menu__item"><a href="#">Specials</a></li>
+                            <li class="menu__item"><a href="#">About us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <pre>
+                    <code class="language-markup">
+                    &lt;div class="dropdown"&gt;
+                        &lt;button type="button" class="dropdown__toggle"&gt;Main Menu&lt;/button&gt;
+                        &lt;div class="dropdown__drawer"&gt;
+                            &lt;ul class="menu"&gt;
+                                &lt;li class="menu__item" &gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                                &lt;li class="menu__item" &gt;&lt;a href="#"&gt;Coffees&lt;/a&gt;&lt;/li&gt;
+                                &lt;li class="menu__item" &gt;&lt;a href="#"&gt;Brewers&lt;/a&gt;&lt;/li&gt;
+                                &lt;li class="menu__item" &gt;&lt;a href="#"&gt;Specials&lt;/a&gt;&lt;/li&gt;
+                                &lt;li class="menu__item" &gt;&lt;a href="#"&gt;About us&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;                      
+                    </code>
+                </pre>
+
+                <p>I've used the double-underscore notation here to indicate that toggle and drawer are
+                    sub-elements of the Dropdown module. Clicking the toggle will reveal or hide the
+                    drawer. The styles for the dropdown are shown in the next listing. Add this to your
+                    stylesheet. This gives you a functioning dropdown, though the menu inside it remains unstyled</p>
+                <pre>
+                    <code class="language-css">  
+                        .dropdown {
+                            position: relative;
+                            display: inline-block;
+                        }
+                        
+                        .dropdown__toggle {
+                            padding: 0.5em 2em 0.5em 1.5em;
+                            border: 1px solid var(--default-bd-color);
+                            font-size: 1rem;
+                            background-color: var(--default-bg-color);
+                        }
+                        
+                        .dropdown__toggle::after {
+                            content: "";
+                            position: absolute;
+                            right: 1em;
+                            top: 1em;
+                            border: 0.3em solid;
+                            border-color: black transparent transparent;
+                        }
+                        
+                        .dropdown__drawer {
+                            display: none;
+                            position: absolute;
+                            left: 0;
+                            top: 1.0em;
+                            width: 100%;
+                            background-color: var(--default-bg-color);
+                        }                        
+                        
+                    </code>
+                </pre>
+
+                <p>With the Dropdown module working, you can now focus your attention on the Menu
+                    module. You don't need to worry any longer about the opening and closing of the
+                    dropdown, as that's already taken care of by the Dropdown module. The Menu module will apply the
+                    look and feel you need to the list of links. </p>
+
+                <pre>
+                        <code class="language-css">                              
+    
+                            .menu {
+                                margin: 0;
+                                padding-left: 0;
+                                list-style: none;
+                                border: 1px solid var(--default-bd-color);
+                            }
+                            
+                            .menu__item+.menu__item {
+                                border-top: 1px solid var(--default-bd-color);
+                                margin-top: 0px;
+                            }
+                            
+                            .menu__item>a {
+                                display: block;
+                                padding: 0.5em 1.5em;
+                                text-decoration: none;
+                                color: #369;
+                                background-color: var(--default-bg-color);    
+                            }
+                            
+                            .menu__item>a:hover {
+                                background-color: var(--default-sc-color);
+                            }
+                            
+                            
+                        </code>
+                    </pre>
+                <h3>Sumary</h3>
+                <ul class="summary">
+                    <li>Break your CSS up into small, reusable modules.</li>
+                    <li>Never write styles that reach into another module and change its appearance.</li>
+                    <li>Use variant classes to provide multiple versions of the same module.</li>
+                    <li>Divide large constructs into smaller modules; build your pages by piecing together a number of
+                        modules.</li>
+                    <li>Group all rules for a module together in your stylesheet.</li>
+                    <li>Use a naming convention such as double-hyphens and double-underscores to make your modules'
+                        structure easier to understand at a glance.</li>
+                </ul>
+
+            </section>
+
+        </main>
+    </div>
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js"></script>
+</body>
+
+</html>

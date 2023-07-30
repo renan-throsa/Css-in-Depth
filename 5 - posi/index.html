@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+  <title>CSS In Depth - Positioning</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="tile">
+      <nav>
+        <div class="dropdown">
+          <div class="dropdown-label">Main Menu</div>
+          <div class="dropdown-menu">
+            <ul class="submenu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </nav>
+
+    </header>
+
+    <main>
+
+      <article class="tile">
+
+        <h1>Team collaboration done right</h1>
+        <p>
+          Thousands of teams from all over the world turn to <b>Ink</b> to
+          communicate and get things done.
+        </p>
+
+        <h1>Communication around the globe</h1>
+        <p>
+          Thousands of teams from all over the world turn to <b>Ink</b> to
+          communicate and get things done.
+        </p>
+
+        <h1>Instant access to your team's documents</h1>
+        <p>
+          Thousands of teams from all over the world turn to <b>Ink</b> to
+          communicate and get things done.
+        </p>
+
+        <h1>Intuitive interface</h1>
+        <p>
+          Thousands of teams from all over the world turn to <b>Ink</b> to
+          communicate and get things done.
+        </p>
+
+        <p>Find out what's going on at <b>Ink</b>. Sign up for our newsletter: <button style="margin-top: 0px;"
+            class="btn btn-primary" id="open">Sign up</button></p>
+      </article>
+
+
+    </main>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-body">
+      <button class="modal-close" id="close">close</button>
+      <h2>Ink Newsletter</h2>
+      <p>Sign up for our monthly newsletter. No spam.
+        We promise!</p>
+      <form class="login-form">
+        <p>
+          <label for="email">Email address:</label>
+          <input type="text" name="email" id="email" />
+        </p>
+        <p><button class="btn btn-primary" type="submit">Submit</button></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

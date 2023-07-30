@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=PT+Serif&display=swap');
+
+:root {
+  box-sizing: border-box;
+  font-size: 1em;
+  --default-margin: 1.5em;
+  --default-bg-color: #f3f2ef;
+  --default-mn-color: #f44336;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--default-bg-color);
+  font-family: 'Oswald', sans-serif;
+}
+
+body *+* {
+  margin-top: var(--default-margin);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: [left] 2fr [center] 1fr [right];
+  grid-template-rows: repeat(5, [row] auto);
+  grid-gap: 1.5em;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.tile {
+  padding: 1.5em;
+  border-radius: .2em;
+  background-color: #ffffff;
+}
+
+header,
+nav {
+  grid-row: row 1 / row 2;
+  grid-column: left / right;
+}
+
+.main {
+  grid-row: row 3 / row 5;
+  grid-column: left / center;
+}
+
+.sidebar-top {
+  grid-row: row 3 / row 4;
+  grid-column: center / right;
+}
+
+.sidebar-bottom {
+  grid-row: row 4 / row 5;
+  grid-column: center / right;
+}
+
+footer {
+  grid-column: left / right;
+  grid-row: row 5;
+  color: #f1f1f1;
+  padding: 0.5em 1em;
+  background-color: #666666;
+  border-radius: .2em;
+}
+
+.nav-list {
+  display: flex;
+  background-color: var(--default-mn-color);
+  list-style: none;
+  border-radius: .2em;
+}
+
+.nav-list>li {
+  margin-top: 0px;
+}
+
+.nav-list>li+li {
+  margin-left: var(--default-margin);
+}
+
+.nav-list>.nav-right {
+  margin-left: 50%;
+}
+
+.nav-list>li>a {
+  color: #ffffff;
+  text-transform: capitalize;
+  text-decoration: none;
+  padding: 1em 1em;
+  display: block;
+}
+
+
+.login-form h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: right;
+}
+
+.login-form input:not([type=checkbox]):not([type=radio]) {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  padding: 0.5em;
+}
+
+.btn {
+  border: #000 solid 1px;
+  background-color: var(--default-mn-color);
+  padding: 0.5em 1.0em;
+  cursor: pointer;
+  width: 100%;
+  color: #fff;
+  font-size: 1em;
+}
+
+.btn-cta {
+  border: #000 solid 1px;
+  background-color: var(--default-mn-color);
+  padding: 0.5em 1.0em;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+.centered {
+  text-align: center;
+}
+
+.cost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: .7;
+}
+
+.cost>span {
+  margin-top: 0;
+}
+
+.cost-currency {
+  font-size: 2rem;
+}
+
+.cost-dollars {
+  font-size: 4rem;
+}
+
+.cost-cents {
+  font-size: 1.5rem;
+  align-self: flex-end;
+}
+
+
+.btn-cta:hover,
+.btn:hover {
+  color: #000;
+  background-color: var(--default-bg-color);
+}
+
+.nav-list>li>a:hover {
+  background-color: var(--default-bg-color);
+  color: #000;
+}

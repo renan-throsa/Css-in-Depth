@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+  <title>CSS In Depth - Responsiveness</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header id="header" class="page-header tile">
+      <div class="title">
+        <h1>Wombat Coffee Roasters</h1>
+        <div class="slogan">We love coffee</div>
+      </div>
+
+      <nav class="menu" id="main-menu">
+        <button type="button" class="menu-toggle" id="toggle-menu">
+          toggle menu
+        </button>
+        <div class="dropdown">
+          <ul class="dropdown-menu" id="nav-menu">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/shop.html">Shop</a></li>
+            <li><a href="/menu.html">Menu</a></li>
+            <li><a href="/brew.html">Brew</a></li>
+          </ul>
+        </div>
+      </nav>
+      <section id="hero" class="hero">
+        Welcome to Wombat Coffee Roasters! We are
+        passionate about our craft, striving to bring you
+        the best hand-crafted coffee in the city.
+      </section>
+    </header>
+
+    <main id="main">
+
+
+      <div class="tile row">
+        <section class="column">
+          <h2 class="subtitle">Single-origin</h2>
+          <p>We have built partnerships with small farms
+            around the world to hand-select beans at the
+            peak of season. We then carefully roast in
+            <a href="/batch-size.html">small batches</a>
+            to maximize their potential.
+          </p>
+        </section>
+        <section class="column">
+          <h2 class="subtitle">Blends</h2>
+          <p>Our tasters have put together a selection of
+            carefully balanced blends. Our famous
+            <a href="/house-blend.html">house blend</a>
+            is available year round.
+          </p>
+        </section>
+        <section class="column">
+          <h2 class="subtitle">Brewing Equipment</h2>
+          <p>We offer our favorite kettles, French
+            presses, and pour-over cones. Come to one of
+            our <a href="/classes.html">brewing
+              classes</a> to learn how to brew the perfect
+            pour-over cup.</p>
+        </section>
+      </div>
+
+      <p>Find out what's going on at <b>Wombat</b>. Sign up for our newsletter: <button style="margin-top: 0px;"
+          class="btn btn-primary" id="open" type="button">Sign up</button></p>
+    </main>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-body">
+      <button class="modal-close" id="close" type="button">close</button>
+      <h2>Ink Newsletter</h2>
+      <p>Sign up for our monthly newsletter. No spam.
+        We promise!</p>
+      <form class="login-form">
+        <p>
+          <label for="email">Email address:</label>
+          <input type="text" name="email" id="email" />
+        </p>
+        <p><button class="btn btn-primary" type="submit">Submit</button></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
