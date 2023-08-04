@@ -1,0 +1,17 @@
+{
+  "name": "pattern-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "kss --config kss-config.json && http-server -o ./docs/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "kss": "^3.1.0"
+  }
+}
