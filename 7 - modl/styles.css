@@ -75,6 +75,7 @@ h3 {
     border: 1px solid #265559;
     border-radius: 0.2em;
     background-color: transparent;
+    box-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.15);
     font-size: 1rem;
 }
 
@@ -89,6 +90,22 @@ h3 {
     color: #fff;
     background-color: #a92323;
 
+}
+
+.button--success:hover {
+    background-color: #36652b;
+}
+
+.button--success:active {
+    background-color: #26461e;
+}
+
+.button--danger:hover {
+    background-color: #b82626;
+}
+
+.button--danger:active {
+    background-color: #8e1d1d;
 }
 
 .button--small {
