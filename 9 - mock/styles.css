@@ -50,6 +50,7 @@ body {
   justify-content: space-between;
   max-width: 1080px;
   margin: 0 auto;
+  padding: 0.625em 0;
 }
 
 .home-link {
@@ -80,7 +81,7 @@ body {
 }
 
 .top-nav>li+li {
-  margin-left: 5px;
+  margin-left: 0.625em;
 }
 
 .top-nav a:hover {
@@ -101,11 +102,14 @@ body {
 .hero__inner {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 50px 0 200px 0;
+  padding: 5.5625em 12.5em 12.5em 0;
+  text-align: right
 }
 
 .hero h2 {
   font-size: 1.95rem;
+  margin-top: 0;
+  margin-bottom: 0.625rem;
 }
 
 .button {
@@ -139,10 +143,30 @@ body {
   display: flex;
 }
 
+.tile-row>*+* {
+  margin-left: 1.5em;
+}
+
 .tile {
   flex: 1;
   background-color: var(--white);
   border-radius: 0.3em;
+  padding: 1.5em;
+}
+
+.tag-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+
+.tag-list>li {
+  display: inline;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
+  background-color: var(--light-gray);
+  line-height: 2.6;
 }
 
 .page-footer {
@@ -150,6 +174,9 @@ body {
   padding: 1em 0;
   background-color: var(--light-gray);
   color: var(--gray);
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 .page-footer__inner {
@@ -175,13 +202,7 @@ a:visited {
   color: var(--brand-green);
 }
 
-a:hover {
-  color: var(--brand-green);
+p {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
-
-a:active {}
-
-.button {}
-
-
-.button--cta {}
